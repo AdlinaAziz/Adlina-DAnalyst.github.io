@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="e-Portfolio for TTTN3133 Secure Programming by Siti Nur Adlina Binti Abdul Aziz">
+  <meta name="theme-color" content="#fff1f2">
   <title>Siti Nur Adlina Binti Abdul Aziz | TTTN3133 Secure Programming e-Portfolio</title>
   <style>
     :root {
@@ -11,7 +13,7 @@
       --bg: #fff1f2;
       --card-bg: #ffffff;
       --text: #371b24;
-      --text-muted: #784c5a;
+      --text-muted: #6b3e4c;
       --accent: #e11d48;
       --border: #fecdd3;
       --shadow: 0 4px 15px rgba(219, 39, 119, 0.08);
@@ -38,8 +40,8 @@
       position: sticky;
       top: 0;
       z-index: 1000;
-      background-color: rgba(255, 241, 242, 0.95);
-      backdrop-filter: blur(8px);
+      background-color: rgba(255, 241, 242, 0.98);
+      backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--border);
     }
 
@@ -49,41 +51,66 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1rem 2rem;
+      padding: 0.8rem 1.5rem;
+      position: relative;
     }
 
     .logo {
       font-weight: 700;
-      font-size: 1.25rem;
+      font-size: 1.15rem;
       color: var(--primary);
       text-decoration: none;
+      padding: 0.5rem 0;
+    }
+
+    .menu-toggle {
+      display: none;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 0.5rem 0.8rem;
+      cursor: pointer;
+      color: var(--primary);
+      font-size: 1.25rem;
+      min-width: 48px;
+      min-height: 48px;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow);
     }
 
     .nav-links {
       display: flex;
       list-style: none;
-      gap: 1.5rem;
+      gap: 1rem;
     }
 
     .nav-links a {
       color: var(--text);
       text-decoration: none;
       font-weight: 600;
-      transition: color 0.2s ease;
+      padding: 0.6rem 0.8rem;
+      border-radius: 6px;
+      display: inline-block;
+      min-height: 48px;
+      line-height: 28px;
+      transition: all 0.2s ease;
     }
 
-    .nav-links a:hover {
+    .nav-links a:hover,
+    .nav-links a:focus {
       color: var(--primary);
+      background-color: rgba(219, 39, 119, 0.08);
     }
 
     .container {
       max-width: 1100px;
       margin: 0 auto;
-      padding: 2rem 1.5rem;
+      padding: 2rem 1.25rem;
     }
 
     section {
-      padding: 4rem 0 2rem 0;
+      padding: 3.5rem 0 2rem 0;
       border-bottom: 1px solid var(--border);
     }
 
@@ -92,13 +119,14 @@
     }
 
     h1 {
-      font-size: 2.2rem;
+      font-size: 2rem;
       margin-bottom: 0.5rem;
+      line-height: 1.3;
     }
 
     h2 {
-      font-size: 1.8rem;
-      margin-bottom: 1.5rem;
+      font-size: 1.75rem;
+      margin-bottom: 1.25rem;
       position: relative;
       display: inline-block;
     }
@@ -115,13 +143,13 @@
     }
 
     #home {
-      padding-top: 2rem;
+      padding-top: 1.5rem;
     }
 
     .hero-card {
       background: var(--card-bg);
       border-radius: 12px;
-      padding: 2rem;
+      padding: 1.75rem;
       border: 1px solid var(--border);
       box-shadow: var(--shadow);
     }
@@ -138,11 +166,12 @@
       font-weight: 600;
     }
 
+    /* Single Row Desktop / Responsive Grid */
     .group-row {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 1rem;
-      margin-top: 1.5rem;
+      margin-top: 1.25rem;
     }
 
     .member-card {
@@ -171,14 +200,10 @@
       text-align: center;
     }
 
-    .member-card p strong {
-      color: var(--text);
-    }
-
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
       margin-top: 1.5rem;
     }
 
@@ -194,21 +219,21 @@
     }
 
     .card-content {
-      padding: 1.5rem;
+      padding: 1.25rem;
       display: flex;
       flex-direction: column;
       height: 100%;
     }
 
     .card-title {
-      font-size: 1.2rem;
+      font-size: 1.15rem;
       margin-bottom: 0.5rem;
       color: var(--primary);
     }
 
     .card-description {
       color: var(--text-muted);
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       margin-bottom: 1rem;
     }
 
@@ -219,7 +244,7 @@
       overflow: hidden;
       border-radius: 8px;
       margin-bottom: 1rem;
-      background: #000;
+      background: #111111;
     }
 
     .video-container iframe {
@@ -236,33 +261,38 @@
       padding: 1rem;
       border-radius: 6px;
       border-left: 3px solid var(--primary);
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       color: var(--text);
       margin-top: auto;
       margin-bottom: 1rem;
     }
 
     .btn {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       text-align: center;
       background-color: var(--primary);
       color: #ffffff;
-      padding: 0.6rem 1.2rem;
-      border-radius: 6px;
+      padding: 0.75rem 1.2rem;
+      min-height: 48px;
+      border-radius: 8px;
       text-decoration: none;
       font-weight: 600;
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       transition: background-color 0.2s ease;
+      width: 100%;
     }
 
-    .btn:hover {
+    .btn:hover,
+    .btn:focus {
       background-color: var(--primary-hover);
     }
 
     .skills-list {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.75rem;
+      gap: 0.6rem;
       margin-top: 1rem;
     }
 
@@ -270,10 +300,13 @@
       background: #fce7f3;
       color: var(--primary);
       border: 1px solid var(--border);
-      padding: 0.4rem 0.85rem;
+      padding: 0.5rem 0.85rem;
       border-radius: 20px;
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       font-weight: 600;
+      min-height: 38px;
+      display: inline-flex;
+      align-items: center;
     }
 
     .content-box {
@@ -281,38 +314,75 @@
       border-radius: 8px;
       border: 1px solid var(--border);
       box-shadow: var(--shadow);
-      padding: 1.5rem;
+      padding: 1.25rem;
       margin-top: 1rem;
     }
 
     footer {
       text-align: center;
-      padding: 2rem;
+      padding: 2rem 1rem;
       background: #fce7f3;
       border-top: 1px solid var(--border);
       color: var(--text-muted);
-      font-size: 0.9rem;
+      font-size: 0.88rem;
     }
 
+    /* Mobile Responsive Optimizations */
     @media (max-width: 900px) {
       .group-row {
         grid-template-columns: repeat(2, 1fr);
       }
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: flex;
+      }
+
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: rgba(255, 241, 242, 0.98);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--border);
+        padding: 1rem 1.5rem;
+        box-shadow: 0 10px 20px rgba(219, 39, 119, 0.1);
+        gap: 0.5rem;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .nav-links a {
+        width: 100%;
+        border-bottom: 1px dashed var(--border);
+        padding: 0.75rem 0.5rem;
+      }
+
+      .nav-links li:last-child a {
+        border-bottom: none;
+      }
+
+      h1 {
+        font-size: 1.6rem;
+      }
+
+      h2 {
+        font-size: 1.4rem;
+      }
+    }
+
+    @media (max-width: 500px) {
       .group-row {
         grid-template-columns: 1fr;
       }
-      nav {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 1rem;
-      }
-      .nav-links {
-        flex-direction: column;
-        gap: 0.8rem;
-        width: 100%;
+      .container {
+        padding: 1.25rem 0.85rem;
       }
     }
   </style>
@@ -322,7 +392,10 @@
   <header>
     <nav>
       <a href="#home" class="logo">Siti Nur Adlina | e-Portfolio</a>
-      <ul class="nav-links">
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu" aria-expanded="false">
+        ☰
+      </button>
+      <ul class="nav-links" id="navLinks">
         <li><a href="#home">Home</a></li>
         <li><a href="#labs">Labs</a></li>
         <li><a href="#projects">Projects</a></li>
@@ -343,7 +416,7 @@
           <p><strong>Matric No:</strong> <span>A216479</span></p>
           <p><strong>Faculty:</strong> Faculty of Information Science and Technology (FTSM)</p>
           <p><strong>University:</strong> Universiti Kebangsaan Malaysia (UKM)</p>
-          <p><strong>Programme:</strong> Bachelor of Computer Science With Honours </p>
+          <p><strong>Programme:</strong> Bachelor of Computer Science with Honours</p>
           <p><strong>Group Name:</strong> <span>Kawan Kawan Soman</span></p>
           <p><strong>Instructor:</strong> TS. DR. NUR HANIS SABRINA BINTI SUHAIMI</p>
         </div>
@@ -396,7 +469,7 @@
             <h3 class="card-title">Tutorial 1 Walkthrough</h3>
             <p class="card-description">Demonstration of initial secure environment setup, static analysis, and code hardening.</p>
             <div class="video-container">
-              <iframe src="https://www.youtube.com/embed/YOUR_LAB_VIDEO_ID" title="Tutorial 1 Demo" allowfullscreen></iframe>
+              <iframe src="https://www.youtube.com/embed/YOUR_LAB_VIDEO_ID" title="Tutorial 1 Demo Video" loading="lazy" allowfullscreen></iframe>
             </div>
             <div class="reflection-box">
               <strong>Reflection:</strong> Tutorial 1 established fundamental principles of safe software design. We analyzed initial code flaws and configured robust static code analysis tools to catch vulnerabilities early.
@@ -424,7 +497,7 @@
             <h3 class="card-title">Case 1 (Login Test)</h3>
             <p class="card-description">Authentication & Input Validation</p>
             <div class="video-container">
-              <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_1" title="Case 1 Demo" allowfullscreen></iframe>
+              <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_1" title="Case 1 Demo Video" loading="lazy" allowfullscreen></iframe>
             </div>
             <div class="reflection-box">
               <strong>Reflection:</strong> Implementing secure authentication required strictly enforcing input validation and preventing hardcoded credentials. We successfully eliminated credential leakage during the login workflow.
@@ -438,7 +511,7 @@
             <h3 class="card-title">Case 2 (Data 1)</h3>
             <p class="card-description">Encrypted Local Data Storage</p>
             <div class="video-container">
-              <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_2" title="Case 2 Demo" allowfullscreen></iframe>
+              <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_2" title="Case 2 Demo Video" loading="lazy" allowfullscreen></iframe>
             </div>
             <div class="reflection-box">
               <strong>Reflection:</strong> Sensitive user data stored locally was vulnerable to unauthorized extraction via plain storage. Applying AES encryption ensured data at rest remains strictly confidential.
@@ -452,7 +525,7 @@
             <h3 class="card-title">Case 3 (Data 2)</h3>
             <p class="card-description">Network Payload Protection</p>
             <div class="video-container">
-              <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_3" title="Case 3 Demo" allowfullscreen></iframe>
+              <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_3" title="Case 3 Demo Video" loading="lazy" allowfullscreen></iframe>
             </div>
             <div class="reflection-box">
               <strong>Reflection:</strong> Insecure network transmission allowed potential interceptors to inspect sensitive API payloads. Implementing TLS pinning and payload encryption ensured secure end-to-end data transfer.
@@ -466,7 +539,7 @@
             <h3 class="card-title">Case 4 (SQL Injection)</h3>
             <p class="card-description">Parameterized Database Queries</p>
             <div class="video-container">
-              <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_4" title="Case 4 Demo" allowfullscreen></iframe>
+              <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_4" title="Case 4 Demo Video" loading="lazy" allowfullscreen></iframe>
             </div>
             <div class="reflection-box">
               <strong>Reflection:</strong> Unsanitized database queries exposed the local Room database to SQL injection attacks. Replacing raw queries with parameterized Room queries completely mitigated the threat.
@@ -480,7 +553,7 @@
             <h3 class="card-title">Case 5 (Session Handling)</h3>
             <p class="card-description">Access Control & Session Tokens</p>
             <div class="video-container">
-              <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_5" title="Case 5 Demo" allowfullscreen></iframe>
+              <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_5" title="Case 5 Demo Video" loading="lazy" allowfullscreen></iframe>
             </div>
             <div class="reflection-box">
               <strong>Reflection:</strong> Inadequate session management allowed expired tokens to access restricted endpoints. We integrated automated token refresh mechanisms to maintain strict access control.
@@ -494,7 +567,7 @@
             <h3 class="card-title">Case 6 (API Security)</h3>
             <p class="card-description">Secure Key Management & API Integration</p>
             <div class="video-container">
-              <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_6" title="Case 6 Demo" allowfullscreen></iframe>
+              <iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID_6" title="Case 6 Demo Video" loading="lazy" allowfullscreen></iframe>
             </div>
             <div class="reflection-box">
               <strong>Reflection:</strong> Storing API keys inside client code created significant security exposure. We migrated sensitive keys to secure environment configurations and backend proxy services.
@@ -545,6 +618,27 @@
   <footer>
     <p>&copy; 2026 SITI NUR ADLINA BINTI ABDUL AZIZ | Matric No: A216479 | Kawan Kawan Soman (FTSM, UKM)</p>
   </footer>
+
+  <script>
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    menuToggle.addEventListener('click', () => {
+      const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+      menuToggle.setAttribute('aria-expanded', !isExpanded);
+      menuToggle.innerHTML = isExpanded ? '☰' : '✕';
+      navLinks.classList.toggle('active');
+    });
+
+    // Close mobile nav when clicking any link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.innerHTML = '☰';
+      });
+    });
+  </script>
 
 </body>
 </html>
