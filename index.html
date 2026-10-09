@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Siti Nur Adlina Binti Abdul Aziz | TTTN3133 Secure Programming e-Portfolio</title>
+  <style>
+    :root {
+      --primary: #db2777;
+      --primary-hover: #be185d;
+      --bg: #fff1f2;
+      --card-bg: #ffffff;
+      --text: #371b24;
+      --text-muted: #784c5a;
+      --accent: #e11d48;
+      --border: #fecdd3;
+      --shadow: 0 4px 15px rgba(219, 39, 119, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background-color: rgba(255, 241, 242, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    nav {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 1.5rem;
+    }
+
+    .nav-links a {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+    }
+
+    section {
+      padding: 4rem 0 2rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    h1, h2, h3, h4 {
+      color: var(--text);
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 50%;
+      height: 3px;
+      background-color: var(--primary);
+      border-radius: 2px;
+    }
+
+    #home {
+      padding-top: 2rem;
+    }
+
+    .hero-card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 2rem;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+    }
+
+    .meta-details {
+      margin-top: 1rem;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+    }
+
+    .meta-details span {
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    /* Single Row Centered Layout for Group Members */
+    .group-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .member-card {
+      background: #fff5f7;
+      padding: 1.25rem 0.75rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .member-card h4 {
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+      text-align: center;
+    }
+
+    .member-card p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 0.25rem;
+      text-align: center;
+    }
+
+    .member-card p strong {
+      color: var(--text);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+      margin-top: 1.5rem;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .card-content {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .card-title {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      color: var(--primary);
+    }
+
+    .card-description {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+    }
+
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      background: #000;
+    }
+
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .reflection-box {
+      background: #fff5f7;
+      padding: 1rem;
+      border-radius: 6px;
+      border-left: 3px solid var(--primary);
+      font-size: 0.9rem;
+      color: var(--text);
+      margin-top: auto;
+      margin-bottom: 1rem;
+    }
+
+    .btn {
+      display: inline-block;
+      text-align: center;
+      background-color: var(--primary);
+      color: #ffffff;
+      padding: 0.6rem 1.2rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: background-color 0.2s ease;
+    }
+
+    .btn:hover {
+      background-color: var(--primary-hover);
+    }
+
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+
+    .skill-badge {
+      background: #fce7f3;
+      color: var(--primary);
+      border: 1px solid var(--border);
+      padding: 0.4rem 0.85rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .content-box {
+      background: var(--card-bg);
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      padding: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: #fce7f3;
+      border-top: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 900px) {
+      .group-row {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .group-row {
+        grid-template-columns: 1fr;
+      }
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+      .nav-links {
+        flex-direction: column;
+        gap: 0.8rem;
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <a href="#home" class="logo">Siti Nur Adlina | e-Portfolio</a>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#labs">Labs</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#reflection">Reflection</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#resources">Resources</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    
+    <section id="home">
+      <div class="hero-card">
+        <h1>TTTN3133 Secure Programming e-Portfolio</h1>
+        <div class="meta-details">
+          <p><strong>Student Name:</strong> <span>SITI NUR ADLINA BINTI ABDUL AZIZ</span></p>
+          <p><strong>Matric No:</strong> <span>A216479</span></p>
+          <p><strong>Faculty:</strong> Faculty of Information Science and Technology (FTSM)</p>
+          <p><strong>University:</strong> Universiti Kebangsaan Malaysia (UKM)</p>
+          <p><strong>Programme:</strong> Bachelor of Computer Science / Information Technology (FTSM, UKM)</p>
+          <p><strong>Group Name:</strong> <span>Kawan Kawan Soman</span></p>
+          <p><strong>Instructor:</strong> TS. DR. NUR HANIS SABRINA BINTI SUHAIMI</p>
+        </div>
+        
+        <div style="margin-top: 1.5rem;">
+          <h3 style="margin-bottom: 0.5rem;">Scenario</h3>
+          <p style="color: var(--text-muted);">
+            This secure programming e-Portfolio prepared by <strong>SITI NUR ADLINA BINTI ABDUL AZIZ</strong> focuses on identifying, exploiting, and remediating critical mobile application security vulnerabilities within an Android application built for UKM FTSM coursework. The system demonstrates end-to-end security hardening including secure authentication, input sanitization, safe database handling, and encrypted network communications.
+          </p>
+        </div>
+
+        <h3 style="margin-top: 1.5rem; text-align: center;">Group Members</h3>
+        <div class="group-row">
+          <div class="member-card">
+            <h4>1. SITI NUR ADLINA BINTI ABDUL AZIZ</h4>
+            <p><strong>Matric:</strong> A216479</p>
+            <p><strong>Role:</strong> Security Analyst</p>
+            <p>Vulnerability Testing & Encryption Implementation.</p>
+          </div>
+          <div class="member-card">
+            <h4>2. SOMAN A/L KANNALAN</h4>
+            <p><strong>Matric:</strong> A216773</p>
+            <p><strong>Role:</strong> Lead Security Dev</p>
+            <p>Auth & SQLi Remediation, Architecture & e-Portfolio.</p>
+          </div>
+          <div class="member-card">
+            <h4>3. MUHAMMAD DINIY BIN ZAMANI</h4>
+            <p><strong>Matric:</strong> A216664</p>
+            <p><strong>Role:</strong> Front-End Dev</p>
+            <p>Jetpack Compose UI, Room Database & Media Editing.</p>
+          </div>
+          <div class="member-card">
+            <h4>4. MUHAMMAD NUQMAN HAKIM BIN MOHD AINI</h4>
+            <p><strong>Matric:</strong> A216383</p>
+            <p><strong>Role:</strong> API Integrator</p>
+            <p>Firebase Firestore, Retrofit API & Test Configurations.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="labs">
+      <h2>Labs & Practical Exercises</h2>
+      <p style="color: var(--text-muted); margin-bottom: 1rem;">
+        Hands-on tutorial sessions and practical security walkthroughs.
+      </p>
+      <div class="grid">
+        <article class="card">
+          <div class="card-content">
+            <h3 class="card-title">Tutorial 1 Walkthrough</h3>
+            <p class="card-description">Demonstration of initial secure environment setup, static analysis, and code hardening.</p>
+            <div class="video-container">
+              <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Tutorial 1 Demo" allowfullscreen></iframe>
+            </div>
+            <div class="reflection-box">
+              <strong>Reflection:</strong> Tutorial 1 established fundamental principles of safe software design. We analyzed initial code flaws and configured robust static code analysis tools to catch vulnerabilities early.
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="projects">
+      <h2>Project: Mobile Secure Application (TTTN3133)</h2>
+      <p style="margin-bottom: 1.5rem; color: var(--text-muted);">
+        <strong>Problem Statement:</strong> Traditional mobile applications often store sensitive user credentials in plaintext and fail to validate input, exposing systems to SQL injection and unauthorized data access.
+      </p>
+
+      <div style="margin-bottom: 2rem;">
+        <a href="https://github.com/KawanKawanSoman/project2" target="_blank" rel="noopener noreferrer" class="btn">View Main Project 2 Repository on GitHub</a>
+      </div>
+
+      <h3 style="margin-bottom: 1rem;">Vulnerability Solution Cases</h3>
+      <div class="grid">
+
+        <article class="card">
+          <div class="card-content">
+            <h3 class="card-title">Case 1 (Login Test)</h3>
+            <p class="card-description">Authentication & Input Validation</p>
+            <div class="video-container">
+              <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Case 1 Demo" allowfullscreen></iframe>
+            </div>
+            <div class="reflection-box">
+              <strong>Reflection:</strong> Implementing secure authentication required strictly enforcing input validation and preventing hardcoded credentials. We successfully eliminated credential leakage during the login workflow.
+            </div>
+            <a href="https://github.com/KawanKawanSoman/project2/tree/main/case1" target="_blank" rel="noopener noreferrer" class="btn">View on GitHub</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-content">
+            <h3 class="card-title">Case 2 (Data 1)</h3>
+            <p class="card-description">Encrypted Local Data Storage</p>
+            <div class="video-container">
+              <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Case 2 Demo" allowfullscreen></iframe>
+            </div>
+            <div class="reflection-box">
+              <strong>Reflection:</strong> Sensitive user data stored locally was vulnerable to unauthorized extraction via plain storage. Applying AES encryption ensured data at rest remains strictly confidential.
+            </div>
+            <a href="https://github.com/KawanKawanSoman/project2/tree/main/case2" target="_blank" rel="noopener noreferrer" class="btn">View on GitHub</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-content">
+            <h3 class="card-title">Case 3 (Data 2)</h3>
+            <p class="card-description">Network Payload Protection</p>
+            <div class="video-container">
+              <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Case 3 Demo" allowfullscreen></iframe>
+            </div>
+            <div class="reflection-box">
+              <strong>Reflection:</strong> Insecure network transmission allowed potential interceptors to inspect sensitive API payloads. Implementing TLS pinning and payload encryption ensured secure end-to-end data transfer.
+            </div>
+            <a href="https://github.com/KawanKawanSoman/project2/tree/main/case3" target="_blank" rel="noopener noreferrer" class="btn">View on GitHub</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-content">
+            <h3 class="card-title">Case 4 (SQL Injection)</h3>
+            <p class="card-description">Parameterized Database Queries</p>
+            <div class="video-container">
+              <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Case 4 Demo" allowfullscreen></iframe>
+            </div>
+            <div class="reflection-box">
+              <strong>Reflection:</strong> Unsanitized database queries exposed the local Room database to SQL injection attacks. Replacing raw queries with parameterized Room queries completely mitigated the threat.
+            </div>
+            <a href="https://github.com/KawanKawanSoman/project2/tree/main/case4" target="_blank" rel="noopener noreferrer" class="btn">View on GitHub</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-content">
+            <h3 class="card-title">Case 5 (Session Handling)</h3>
+            <p class="card-description">Access Control & Session Tokens</p>
+            <div class="video-container">
+              <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Case 5 Demo" allowfullscreen></iframe>
+            </div>
+            <div class="reflection-box">
+              <strong>Reflection:</strong> Inadequate session management allowed expired tokens to access restricted endpoints. We integrated automated token refresh mechanisms to maintain strict access control.
+            </div>
+            <a href="https://github.com/KawanKawanSoman/project2/tree/main/case5" target="_blank" rel="noopener noreferrer" class="btn">View on GitHub</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-content">
+            <h3 class="card-title">Case 6 (API Security)</h3>
+            <p class="card-description">Secure Key Management & API Integration</p>
+            <div class="video-container">
+              <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Case 6 Demo" allowfullscreen></iframe>
+            </div>
+            <div class="reflection-box">
+              <strong>Reflection:</strong> Storing API keys inside client code created significant security exposure. We migrated sensitive keys to secure environment configurations and backend proxy services.
+            </div>
+            <a href="https://github.com/KawanKawanSoman/project2/tree/main/case6" target="_blank" rel="noopener noreferrer" class="btn">View on GitHub</a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section id="reflection">
+      <h2>Reflection & Learning Journey</h2>
+      <div class="content-box">
+        <p>
+          Completing the TTTN3133 Secure Programming project provided our group, Kawan Kawan Soman, with valuable hands-on experience in identifying and remediating mobile vulnerabilities. As a team, including SITI NUR ADLINA BINTI ABDUL AZIZ, we learned how to transition from reactive bug fixing to proactive secure software development life cycle (SSDLC) principles. This journey deepened our technical mastery in Android security, database hardening, and collaborative software development.
+        </p>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2>Skills & Tech Stack</h2>
+      <div class="skills-list">
+        <span class="skill-badge">SQL Injection Remediation</span>
+        <span class="skill-badge">Python</span>
+        <span class="skill-badge">Room Database</span>
+        <span class="skill-badge">Retrofit</span>
+        <span class="skill-badge">Firebase Firestore</span>
+        <span class="skill-badge">ML Kit</span>
+        <span class="skill-badge">CameraX</span>
+        <span class="skill-badge">Jetpack Compose</span>
+        <span class="skill-badge">Kotlin</span>
+        <span class="skill-badge">Cryptography</span>
+        <span class="skill-badge">GitHub Pages</span>
+      </div>
+    </section>
+
+    <section id="resources">
+      <h2>Resources & Acknowledgements</h2>
+      <div class="content-box">
+        <p><strong>APIs & Libraries Used:</strong> Android Security Guidelines, OWASP Mobile Top 10, Room Persistence Library, Retrofit REST Client, Firebase SDK, Google ML Kit, CameraX API.</p>
+        <p style="margin-top: 0.75rem;"><strong>AI Assistance Acknowledgement:</strong> Generative AI assistance (Gemini) was utilized for e-Portfolio HTML layout generation, responsive CSS styling, and structural template optimization.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2026 SITI NUR ADLINA
